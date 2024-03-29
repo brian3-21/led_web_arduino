@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Control de LED</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <button class="btn" onclick="enviarComando('1')">Encender LED</button>
+        <button class="btn" onclick="enviarComando('0')">Apagar LED</button>
+    </div>
+
+    <script>
+        const socket = io('http://localhost:3000'); // Cambia la URL según la configuración de tu servidor // Conecta al servidor WebSocket
+    
+        function enviarComando(comando) {
+            socket.emit('enviarComando', comando); // Envía el comando al servidor
+        }
+    </script>
+</body>
+</html>
