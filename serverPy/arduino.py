@@ -1,14 +1,13 @@
 import asyncio
 import websockets
 
-async def listen():
-    url = "ws://localhost:8765"
+url = "ws://localhost:8765"
 
-    async with websockets.connect(url) as ws:
-        while True:    
-            await ws.send( "piri ")
-            resp = await ws.recv()
-            print(resp)
-            print("reponse")
+async def resp():
+    while True:
+            ws = websockets.connect(url)
+            websocket.send("Hello world!")
+            message = ws.recv()
+            await print(f"Received: {message}")
 
-asyncio.run(listen())
+asyncio.run(resp())
